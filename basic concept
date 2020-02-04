@@ -1,0 +1,8 @@
+基本概念：
+In compiler design, static single assignment form (often abbreviated as SSA form or simply SSA) is a property of an intermediate representation (IR), 
+which requires that 1) each variable is assigned exactly once, and 2) every variable is defined before it is used.
+
+从上面的描述可以看出，SSA 形式的 IR 主要特征是每个变量只赋值一次。相比而言，非 SSA 形式的 IR 里一个变量可以赋值多次。
+为了得到 SSA 形式的 IR，起初的 IR 中的变量会被分割成不同的版本（version），每个定义（definition：静态分析术语，可以理解为赋值）对应着一个版本。
+在教科书中，通常会在旧的变量名后加上下标构成新的变量名，这也就是各个版本的名字。显然，在 SSA 形式中，UD 链（Use-Define Chain）是十分明确的。
+也就是说，变量的每一个使用（use：静态分析术语，可以理解为变量的读取）点只有唯一一个定义可以到达。
